@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 class="text-center">Payment Here </h1>
+    <!-- <a href="#" routerLink="/post/index" class="btn btn-warning">Back</a> -->
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-group">
+            <label for="customerName">Customer Name:</label>
+            <input type="text" formControlName="customerName" id="customerName" class="form-control">
+            <div *ngIf="f['customerName'].touched && f['customerName'].invalid" class="alert alert-danger">
+                <div *ngIf="f['customerName'].errors && f['customerName'].errors['required']">Customer Name is Required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" formControlName="email" id="email" class="form-control">
+            <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is Required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Mobile Number:</label>
+            <input type="text" formControlName="phoneNumber" id="phoneNumber" class="form-control">
+            <div *ngIf="f['phoneNumber'].touched && f['phoneNumber'].invalid" class="alert alert-danger">
+                <div *ngIf="f['phoneNumber'].errors && f['phoneNumber'].errors['required']">PhoneNumber is Required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="number" formControlName="amount" id="amount" class="form-control">
+            <div *ngIf="f['amount'].touched && f['amount'].invalid" class="alert alert-danger">
+                <div *ngIf="f['amount'].errors && f['amount'].errors['required']">Amount is Required.</div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Create</button>
+    </form>
+</div>
